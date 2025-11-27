@@ -3,6 +3,10 @@
 a small product managment dashboard with features like crud operations, authentication, filtering, pagination and a responsive ui.
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.19.
 
+## email and password for live trial
+-jane@example.com
+-secret123
+
 ## Features
 
 Authentication & Authorization:
