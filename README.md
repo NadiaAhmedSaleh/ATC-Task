@@ -34,7 +34,7 @@ Smooth user flow between pages
 -Angular Router
 -HTTPClient
 
-##installation
+## installation
 
 -git clone
 -cd my-project
