@@ -1,0 +1,246 @@
+<div class="min-h-screen flex items-center justify-center p-4">
+  
+    <div class="relative bg-white/40 backdrop-blur-md shadow-xl rounded-2xl w-full max-w-sm p-4">
+
+
+
+<button 
+  (click)="goBack()"
+  class="absolute top-1 right-1 w-8 h-8 flex items-center justify-center 
+         rounded-full bg-white/50 text-gray-700 
+         hover:bg-white/70 hover:text-gray-900
+         shadow-sm backdrop-blur-sm transition-all duration-200 z-50"
+>
+  ✕
+</button>
+
+
+  <form [formGroup]="form" class="space-y-4 pt-2">
+
+  <div class="relative">
+    <label class="block mb-1 text-sm font-medium text-gray-700">Name *</label>
+
+    <input
+      type="text"
+      formControlName="name"
+      placeholder="Product name"
+      class="w-full pl-2 pr-4 py-2 rounded-lg bg-white/60 border 
+             focus:ring-2 focus:ring-blue-300 focus:outline-none text-gray-800"
+      [ngClass]="{
+        'border-red-500': form.get('name')?.touched && form.get('name')?.invalid,
+        'border-gray-300': !(form.get('name')?.touched && form.get('name')?.invalid)
+      }"
+    />
+
+    <div *ngIf="form.get('name')?.touched && form.get('name')?.invalid"
+         class="text-red-500 text-sm mt-1">
+      Name is required
+    </div>
+  </div>
+
+ 
+  <div>
+    <label class="block mb-1 text-sm font-medium text-gray-700">Description</label>
+    <textarea
+      formControlName="description"
+      placeholder="Product description"
+      class="w-full pl-2 py-2 rounded-lg bg-white/60 border border-gray-300 
+             focus:ring-2 focus:ring-blue-300 focus:outline-none text-gray-800">
+    </textarea>
+  </div>
+
+ 
+  <div>
+    <label class="block mb-1 text-sm font-medium text-gray-700">Price *</label>
+    <input
+      type="number"
+      min="0"
+      formControlName="price"
+      placeholder="Price"
+      class="w-full pl-2 py-2 rounded-lg bg-white/60 border 
+             focus:ring-2 focus:ring-blue-300 focus:outline-none text-gray-800"
+      [ngClass]="{
+        'border-red-500': form.get('price')?.touched && form.get('price')?.invalid,
+        'border-gray-300': !(form.get('price')?.touched && form.get('price')?.invalid)
+      }"
+    />
+    <div *ngIf="form.get('price')?.touched && form.get('price')?.invalid"
+         class="text-red-500 text-sm mt-1">
+      Price is required
+    </div>
+  </div>
+
+
+  <div>
+    <label class="block mb-1 text-sm font-medium text-gray-700">Stock *</label>
+    <input
+      type="number"
+      min="0"
+      formControlName="stock"
+      placeholder="Stock"
+      class="w-full pl-2 py-2 rounded-lg bg-white/60 border 
+             focus:ring-2 focus:ring-blue-300 focus:outline-none text-gray-800"
+      [ngClass]="{
+        'border-red-500': form.get('stock')?.touched && form.get('stock')?.invalid,
+        'border-gray-300': !(form.get('stock')?.touched && form.get('stock')?.invalid)
+      }"
+    />
+    <div *ngIf="form.get('stock')?.touched && form.get('stock')?.invalid"
+         class="text-red-500 text-sm mt-1">
+      Stock is required
+    </div>
+  </div>
+
+ 
+  <div>
+    <label class="block mb-1 text-sm font-medium text-gray-700">Currency *</label>
+    <select
+      formControlName="currency"
+      class="w-full pl-2 pr-4 py-2 rounded-lg bg-white border 
+             focus:ring-2 focus:ring-blue-300 focus:outline-none"
+      [ngClass]="{
+        'border-red-500': form.get('currency')?.touched && form.get('currency')?.invalid,
+        'border-gray-300': !(form.get('currency')?.touched && form.get('currency')?.invalid)
+      }"
+    >
+      <option value="">Select currency</option>
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="EGP">EGP</option>
+      <option value="SAR">SAR</option>
+    </select>
+
+    <div *ngIf="form.get('currency')?.touched && form.get('currency')?.invalid"
+         class="text-red-500 text-sm mt-1">
+      Currency is required
+    </div>
+  </div>
+
+
+  <div class="flex items-center space-x-2">
+    <input
+      type="checkbox"
+      formControlName="is_active"
+      class="w-5 h-5 accent-blue-600 border border-gray-300 rounded focus:ring-2 focus:ring-blue-300"
+    />
+    <span class="text-gray-700 font-medium">Active</span>
+  </div>
+
+  <div class="flex justify-center pt-4">
+    <button
+      type="button"
+      (click)="onSubmit()"
+      [disabled]="form.invalid"
+      class="px-4 py-2 rounded-lg bg-blue-600 text-white 
+             hover:bg-blue-700 transition 
+             disabled:opacity-50 disabled:cursor-not-allowed"
+    >
+      Submit
+    </button>
+  </div>
+</form>
+
+
+
+
+
+
+<!-- 
+  
+  <div class="relative">
+    <label for="name" class="block mb-1 text-m font-medium text-gray-700">Name *</label>
+    <input
+    name="name"
+    type="text"
+    [(ngModel)]="name"
+    #nameRef="ngModel"
+    required
+    placeholder="Product name"
+    class="w-full pl-2 pr-4 py-2 sm:py-2 rounded-lg bg-white/60 backdrop-blur-sm
+           border focus:ring-2 focus:ring-blue-300 focus:outline-none text-gray-800 text-sm sm:text-base"
+    [ngClass]="{
+      'border-red-500': nameRef.touched && nameRef.invalid,
+      'border-gray-300': !(nameRef.touched && nameRef.invalid)
+    }"
+  />
+
+  <div *ngIf="nameRef.touched && nameRef.invalid" class="text-red-500 text-sm mt-1">
+    Name is required
+  </div>
+  </div>
+
+  
+  <div class="pt-2">
+    <label for="description" class="block mb-1 text-m font-medium text-gray-700">Description</label>
+    <textarea id="description" formControlName="description" placeholder="Product description"  class="w-full pl-2  py-2 rounded-lg bg-white/60 backdrop-blur-sm
+           border border-gray-300/60 focus:border-gray-400
+           focus:ring-2 focus:ring-blue-300 focus:outline-none text-gray-800"></textarea>
+  </div>
+
+
+  <div class="pt-2">
+    <label for="price" class="block mb-1 text-m font-medium text-gray-700">Price *</label>
+    <input id="price" type="number" min="0" class="w-full pl-2  py-2 rounded-lg bg-white/60 backdrop-blur-sm
+           border border-gray-300/60 focus:border-gray-400
+           focus:ring-2 focus:ring-blue-300 focus:outline-none text-gray-800" formControlName="price" placeholder="Price" />
+    <div *ngIf="form.get('price')?.touched && form.get('price')?.invalid" class="error">
+      Price is required
+    </div>
+  </div>
+
+  
+  <div class="pt-2">
+    <label for="stock" class="block mb-1 text-m font-medium text-gray-700">Stock *</label>
+    <input id="stock" type="number" min="0"  class="w-full pl-2  py-2 rounded-lg bg-white/60 backdrop-blur-sm
+           border border-gray-300/60 focus:border-gray-400
+           focus:ring-2 focus:ring-blue-300 focus:outline-none text-gray-800" formControlName="stock" placeholder="Stock quantity" />
+    <div *ngIf="form.get('stock')?.touched && form.get('stock')?.invalid" class="error">
+      Stock is required
+    </div>
+  </div>
+
+  
+  <div class="grid py-2">
+    <label for="currency" class="block mb-1 text-m font-medium text-gray-700">Currency *</label>
+    <select id="currency" formControlName="currency"  class="  pl-2 px-4 py-2.5 rounded-lg border border-gray-300 bg-white 
+             focus:ring-2 focus:ring-blue-300 focus:outline-none">
+      <option value="">Select currency</option>
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="EGP">EGP</option>
+      <option value="SAR">SAR</option>
+    </select>
+    <div *ngIf="form.get('currency')?.touched && form.get('currency')?.invalid" class="error">
+      Currency is required
+    </div>
+  </div>
+
+
+  <div class="py-2">
+  <label class="inline-flex items-center space-x-2 cursor-pointer">
+    <input 
+      type="checkbox" 
+      formControlName="is_active"
+      class="w-5 h-5 accent-blue-600 bg-white border border-gray-300 rounded focus:ring-2 focus:ring-blue-300 focus:outline-none"
+    />
+    <span class="text-gray-700 font-medium">Active</span>
+  </label>
+</div>
+
+ 
+  <div class="flex justify-center">
+    <button type="button"       class="px-4 py-2 rounded-lg 
+             bg-blue-600 text-white 
+             hover:bg-blue-700 transition" (click)="onSubmit()" [disabled]="form.invalid">Create Product</button>
+  </div>
+
+
+  -->
+
+
+  </div>
+</div>
+
+
+
+

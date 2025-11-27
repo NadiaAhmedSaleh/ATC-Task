@@ -1,0 +1,38 @@
+
+<app-spinner *ngIf="loading" [show]="true" class="fixed inset-0 z-50" />
+
+<div class="min-h-screen flex items-center justify-center p-4" *ngIf="!loading && product">
+  <div class="relative bg-white/40 backdrop-blur-md shadow-xl rounded-2xl w-full max-w-sm p-4 text-center">
+
+
+    <div *ngIf="error" class="error">{{ error }}</div>
+
+<button 
+  (click)="goBack()"
+  class="absolute top-1 right-1 w-8 h-8 flex items-center justify-center 
+         rounded-full bg-white/50 text-gray-700 
+         hover:bg-white/70 hover:text-gray-900
+         shadow-sm backdrop-blur-sm transition-all duration-200 z-50"
+>
+  ✕
+</button>
+
+
+    <img 
+      class="w-full h-56 object-cover rounded-xl"
+      *ngIf="product.thumbnail_url" [src]="product.thumbnail_url" alt="{{product.name}}"
+    />
+
+
+    <div class="mt-4 space-y-2 text-gray-800">
+      <h2 class="text-xl font-bold">{{ product.name }}</h2>
+
+      <p class="text-sm"><span class="font-semibold">SKU:</span> {{ product.sku }}</p>
+      <p class="text-sm"><span class="font-semibold">Price:</span> {{ product.price }} {{ product.currency }}</p>
+      <p class="text-sm"><span class="font-semibold">Stock:</span> {{ product.stock }}</p>
+      <p class="text-sm"><span class="font-semibold">Status:</span> {{ product.is_active ? 'Active' : 'Inactive' }}</p>
+      <p class="text-sm"><span class="font-semibold">Description:</span> {{ product.description }}</p>
+    </div>
+
+  </div>
+</div>

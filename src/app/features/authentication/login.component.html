@@ -1,0 +1,63 @@
+<div class="min-h-screen flex items-center justify-center px-4 sm:px-0">
+  <div class="w-full max-w-sm sm:max-w-md backdrop-blur-xl bg-white/30 border border-white/40 shadow-xl rounded-2xl p-6 sm:p-8">
+    
+    <h1 class="text-2xl sm:text-3xl font-semibold text-gray-700 mb-6 text-center">
+      Welcome Back,  Login!
+    </h1>
+
+    <form #loginForm="ngForm" class="space-y-5"  (ngSubmit)="login()">
+    
+      <div class="relative">
+        <label class="block mb-1 text-sm sm:text-base font-medium text-gray-700">Email</label>
+        <input 
+          type="email" 
+          name="email"
+          [(ngModel)]="email"
+          #emailRef="ngModel"
+          required
+          placeholder="Enter your email"
+          class="w-full pl-2 pr-4 py-2 sm:py-2 rounded-lg bg-white/60 backdrop-blur-sm
+                 border focus:ring-2 focus:ring-blue-300 focus:outline-none text-gray-800 text-sm sm:text-base"
+          [ngClass]="{
+            'border-red-500': emailRef.touched && emailRef.invalid,
+            'border-gray-300': !(emailRef.touched && emailRef.invalid)
+          }"
+        />
+        <div *ngIf="emailRef.touched && emailRef.invalid" class="text-red-500 text-xs sm:text-sm mt-1">
+          Email is required
+        </div>
+      </div>
+
+  
+      <div>
+        <label class="block mb-1 text-sm sm:text-base font-medium text-gray-700">Password</label>
+        <input 
+          type="password" 
+          name="password"
+          [(ngModel)]="password"
+          #passwordRef="ngModel"
+          required
+          placeholder="Enter your password"
+          class="w-full pl-2 pr-4 py-2 sm:py-2 rounded-lg bg-white/70 border focus:ring-2 focus:ring-blue-400 focus:outline-none text-gray-800 text-sm sm:text-base"
+          [ngClass]="{
+            'border-red-500': passwordRef.touched && passwordRef.invalid,
+            'border-gray-300': !(passwordRef.touched && passwordRef.invalid)
+          }"
+        />
+        <div *ngIf="passwordRef.touched && passwordRef.invalid" class="text-red-500 text-xs sm:text-sm mt-1">
+          Password is required
+        </div>
+      </div>
+
+   
+      <button 
+        type="submit"
+        class="w-full py-2 sm:py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
+        [disabled]="!email || !password || loading">
+        Login
+      </button>
+    </form>
+
+    <p *ngIf="error" class="text-red-500 font-medium text-center mt-4 text-sm sm:text-base">{{ error }}</p>
+  </div>
+</div>
