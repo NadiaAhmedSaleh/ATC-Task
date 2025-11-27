@@ -5,24 +5,19 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 ## Features
 
--Authentication & Authorization
-Token-based authentication
-Route guards to protect dashboard and product pages
--Dashboard
-Displays 150+ products in a clean, responsive table layout
-3 filters (search, active, perPage)
-Pagination for better performance and user experience
-Loading spinner and error handling
--CRUD Operations
-Create Product page with form validation
-Read Product Details page
-Update Product form
-Delete Product with confirmation popup
+Authentication & Authorization:
+Token-based authentication, Route guards to protect dashboard and product pages
+
+Dashboard:
+Displays 150+ products in a clean, responsive table layout, 3 filters (search, active, perPage) , Pagination for better performance and user experience
+and Loading spinner and error handling
+
+CRUD Operations:
+Create Product page with form validation, Read Product Details page, Update Product form and Delete Product with confirmation popup
 All operations integrated with a backend API
--UI/UX
-Fully responsive layout (CSS + Tailwind)
-Clean and modern components
-Smooth user flow between pages
+
+UI/UX:
+Fully responsive layout (CSS + Tailwind), Clean and modern components and a Smooth user flow between pages
 
 ## Tech Stack
 
