@@ -1,6 +1,44 @@
-# AtcTask
+# Atc-Task
 
+a small product managment dashboard with features like crud operations, authentication, filtering, pagination and a responsive ui.
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.19.
+
+## Features
+
+-Authentication & Authorization
+Token-based authentication
+Route guards to protect dashboard and product pages
+-Dashboard
+Displays 150+ products in a clean, responsive table layout
+3 filters (search, active, perPage)
+Pagination for better performance and user experience
+Loading spinner and error handling
+-CRUD Operations
+Create Product page with form validation
+Read Product Details page
+Update Product form
+Delete Product with confirmation popup
+All operations integrated with a backend API
+-UI/UX
+Fully responsive layout (CSS + Tailwind)
+Clean and modern components
+Smooth user flow between pages
+
+## Tech Stack
+
+-Angular v19
+-TypeScript
+-RxJS
+-CSS
+-TailwindCSS
+-Angular Router
+-HTTPClient
+
+##installation
+
+-git clone
+-cd my-project
+-npm install
 
 ## Development server
 
